@@ -90,6 +90,9 @@ $(document).ready(function () {
      //question start
    
      function renderQuestion() {
+          //updating the question number
+          $(".question-num").text(`Question:${pos +1} of ${lastQuestion}`)
+
           console.log(currentQueAndAns)
 
           //hold correct answer
@@ -139,6 +142,7 @@ $(document).ready(function () {
         
           if (correctAnswerArr[0].indexOf(optionPicked)!== -1){
           score+=2
+
           alert("Good job! Correct answer is "+ optionPicked)
          
           console.log(score)
@@ -146,7 +150,10 @@ $(document).ready(function () {
                     alert("Oh no!, Correct answer is "+ correctAnswerArr[0])}
      
           optionChecked.checked = false
-         
+         if(pos==lastQuestion-1){
+          $("#submit-button").css("display", "none")
+          $(".question-num").css("display", "none")
+         }
             pos++
             renderQuestion()
             console.log(pos)
@@ -169,16 +176,26 @@ $(document).ready(function () {
                seconds = seconds < 10 ? "0" + seconds : seconds;
                let disPlayTimer = `${minutes}:${seconds}  `
                $("#time-left").text(`Time Left: ${disPlayTimer}`)
+               if (timer < 90){
+                    $("#time-left").css("color", "red")
+               }else{
+                    $("#time-left").css("color", "green")
+               }
                if (timer < 0) {
                     $("#time-left").text(`Time Up!`)
-                    $(".mainSection").html(`<h1>THANKS FOR TAKING THE TEST</h1>`)
+                    $("#currentquestion").css("display", "hide")
+                    
+                    $(".mainDiv").html(`<h1>THANKS FOR TAKING THE TEST</h1>
+                    <br>
+                    Your Score is ${score} over ${lastQuestion}
+                    `)
                     $(".answer").html("")
                }
                timer--
           }, 1000)
      }
 
-     startTimer(44300)
+     startTimer(10)
 
     
 
