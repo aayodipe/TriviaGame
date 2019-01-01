@@ -201,5 +201,5 @@ $(document).ready(function() {
 		}, 1000);
 	}
 
-	startTimer(100);
+	startTimer(300);
 });
