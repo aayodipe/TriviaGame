@@ -156,7 +156,7 @@ $(document).ready(function() {
 			$('#currentquestion').css('display', 'none');
 			$('.mainDiv').html(`<h1>THANKS FOR TAKING THE TEST</h1>
                     <br>
-                    Your Score is ${score} over ${lastQuestion}
+				Your Score is ${score} over ${lastQuestion *2}
                 `);
 			$('.answer').html('');
 		}
@@ -190,7 +190,7 @@ $(document).ready(function() {
                     
                     */
 				$('#time-left').text(`Time Up!`);
-				$('#currentquestion').css(`display, none`);
+				$('#currentquestion').css("display", "none");
 				$('.mainDiv').html(`<h1>THANKS FOR TAKING THE TEST</h1>
                     <br>
                     Your Score is ${score} over ${lastQuestion * 2}
@@ -201,5 +201,5 @@ $(document).ready(function() {
 		}, 1000);
 	}
 
-	startTimer(150);
+	startTimer(100);
 });
