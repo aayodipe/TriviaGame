@@ -195,7 +195,7 @@ $(document).ready(function () {
           }, 1000)
      }
 
-     startTimer(10)
+     startTimer(300)
 
     
 
