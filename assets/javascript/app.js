@@ -64,7 +64,7 @@ $(document).ready(function() {
 	let pickedquestion;
 	let currentQueAndAns = [];
 	let allAnswersArray = [];
-	let correctAnswerArr = [];
+	
 
 	/*
                 Section A
@@ -95,8 +95,8 @@ $(document).ready(function() {
 		console.log(currentQueAndAns);
 
 		//hold correct answer
-		correctAnswerArr = [currentQueAndAns[pos].correct_answer];
-		console.log(correctAnswerArr[0]);
+		correctAnswer = [currentQueAndAns[pos].correct_answer].toString();
+		console.log(correctAnswer);
 
 		//holds all answers
 		//pos is the index of the current question
@@ -129,27 +129,28 @@ $(document).ready(function() {
 	renderQuestion();
 
 	$('#submit-button').on('click', function() {
-		var optionChecked = document.querySelector('input[type=radio]:checked');
+		//sample
+		let  optionChecked = $(".form-check input:checked + label").text()
+		console.log(optionChecked)
+		
+		 var optionChecked1 = document.querySelector('input[type=radio]:checked');
 		//check if option is checked
 		if (!optionChecked) {
 			alert('Please select an option');
 			return;
 		}
-		//check for correct answer
-		let optionPicked = optionChecked.value;
-		console.log(optionPicked);
-
-		if (correctAnswerArr[0].indexOf(optionPicked) !== -1) {
+		
+		if (correctAnswer===optionChecked) {
 			score += 2;
 
-			alert('Good job! Correct answer is ' + optionPicked);
+			alert('Good job! Correct answer is ' + optionChecked);
 
 			console.log(score);
 		} else {
-			alert('Oh no!, Correct answer is ' + correctAnswerArr[0]);
+			alert('Oh no!, Correct answer is ' + correctAnswer);
 		}
 
-		optionChecked.checked = false;
+		 optionChecked.checked = false;
 		//hide the page after last question
 		if (pos == lastQuestion - 1) {
 			$('#time-left').text(`Time Up!`);
@@ -164,8 +165,6 @@ $(document).ready(function() {
 		renderQuestion();
 		console.log(pos);
 	});
-
-	// $(".next").on("click", randomQuestion)
 
 	//set timer
 	function startTimer(duration) {
