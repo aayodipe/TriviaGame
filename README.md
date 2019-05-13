@@ -17,8 +17,8 @@ To used this application as an end-user, click on the link  and you will be dire
 # Screenshot
 
 ## Still more time to answer question.
-![Trival](https://i.imgur.com/GlnZe5h.png))
+![Trival](https://i.imgur.com/GlnZe5h.png)
 
 ## When a question is answered correctly.
 
-![Imgur](https://i.imgur.com/PdIDY45.png))
+![Imgur](https://i.imgur.com/PdIDY45.png)
